@@ -1,0 +1,11 @@
+Directories
+===========
+- source_dir - katalog, ktory jest kopiowany (backupowany)
+- destination - klucz obcy, okreslajacy serwer albo urzadzenie (np. dysk)
+- destination_dir - podkatalog na serwerze lub urzadzeniu, do ktorego jest robiona kopia
+
+Destinations
+============
+- type - rodzaj zewnetrznego nosnika (np. scp, dev, ftp, ...)
+- address - adres zdalengo serwera w formacie login:haslo@host
+- dir - katalog, w ktorym znajduja sie kopie
