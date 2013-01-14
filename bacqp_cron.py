@@ -26,10 +26,11 @@ def backup_uzytkownika(katalog_domowy):
         
         adres = query_serwera.record(0).value('adres').toString()
         katalog_docelowy = query_serwera.record(0).value('katalog docelowy').toString()   
+        klucz = query_serwera.record(0).value('klucz').toString() 
         
         print "Katalog %s wysylamy na serwer %s:%s" % (nazwa, adres, katalog_docelowy)
-        
-        subprocess.call("rsync -ave ssh %s %s:\"%s\"" % (nazwa, adres, katalog_docelowy), shell = True)
+        print "rsync -ave \"ssh -i %s -o PasswordAuthentication=no\" %s %s:\"%s\"" % (klucz, nazwa, adres, katalog_docelowy)
+        subprocess.call("rsync -ave \"ssh -i %s -o PasswordAuthentication=no\" %s %s:\"%s\"" % (klucz, nazwa, adres, katalog_docelowy), shell = True)
         
 def wykonaj_backup():
     plik = open('/etc/passwd')
